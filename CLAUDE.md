@@ -35,13 +35,19 @@ Identity
 
 Media
 - Current work gets full-column images; older work uses .media--small.
+- A game with several screenshots gets a .gallery: the first shot runs the full
+  column, the rest sit in a row beneath it (six to a row, three on phones, so keep
+  the count at six beyond the lead). Each links to its -1920.webp; the script opens
+  them all in the #viewer dialog. Captions are the short names from the Liminal
+  site's thumbnail strip, in data-caption.
 - Videos start as a poster image that links to YouTube. The script swaps in a
   youtube-nocookie player on click, so nothing loads from YouTube until a visitor asks.
 - Every image has width, height and alt text that says what's in the frame. Use
   loading="lazy" below the fold. Keep files small (WebP where possible, a few
   hundred KB at most).
-- Leave No Witnesses screenshots come from the Liminal repo (images/lnw). Reuse its
-  sizes and alt text rather than making new ones.
+- Leave No Witnesses and Poly Blockade screenshots come from the Liminal repo
+  (~/Documents/Liminal, images/lnw and images/pb). Reuse its sizes and alt text
+  rather than making new ones.
 
 Copy
 - Plain, concrete, first person. Say what he built and what it did: "Guard
@@ -74,10 +80,11 @@ Links
   adding it.
 
 Motion
-- CSS first. The only script is the email assembly, the copy button and the video
-  facade. Don't add scroll animations or entrance effects.
+- CSS first. The only script is the email assembly, the copy button, the video
+  facade and the screenshot viewer. Don't add scroll animations or entrance effects.
 - Every transition has a prefers-reduced-motion path, and the page is complete with
-  motion and script off (videos fall back to links to YouTube).
+  motion and script off (videos fall back to links to YouTube, screenshots to the
+  full-size image).
 
 Constraints
 - Design for phones first. Keep the --gutter side margin (16px minimum) and no

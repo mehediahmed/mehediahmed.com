@@ -13,12 +13,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap">
-<link rel="stylesheet" href="styles.css?v=1">
+<link rel="stylesheet" href="styles.css?v=2">
 </head>
 <body>
-<div class="wrap">
-  <p class="draft-banner" role="status">Draft. The highlighted items need your input before this goes live.</p>
-  <header class="site-header">
+<header class="site-header">
+  <div class="wrap site-header-inner">
+    <a class="site-name" href="#top">Mehedi Ahmed</a>
     <nav class="site-nav" aria-label="Sections">
       <ul>
         <li><a href="#work">Work</a></li>
@@ -26,16 +26,25 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-  </header>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="draft-banner" role="status">Draft. The highlighted items need your input before this goes live.</p>
 
   <main id="top">
     <section class="intro" aria-labelledby="name">
       <h1 id="name">Mehedi Ahmed</h1>
-      <p class="title">Unity engineer in New York</p>
-      <p class="lead">I've been shipping VR, AR and games since 2017. I build the systems underneath them: rendering, NPC AI, physics, networking, and the editor tools the rest of the team works in. Right now I'm co-founder and lead engineer at Liminal Games Studio.</p>
-      <div class="actions">
-        <a class="btn btn--solid" href="#contact" data-email-link>Email me</a>
-        <a class="btn" href="Mehedi_Ahmed_Resume.pdf">Résumé (PDF)</a>
+      <div class="intro-side">
+        <p class="title">Unity engineer in New York</p>
+        <p class="status">Open to full-time roles and contract work</p>
+      </div>
+      <div class="intro-main">
+        <p class="lead">I've been shipping VR, AR and games since 2017. I build the systems underneath them: rendering, NPC AI, physics, networking, and the editor tools the rest of the team works in. Right now I'm co-founder and lead engineer at Liminal Games Studio.</p>
+        <div class="actions">
+          <a class="btn btn--solid" href="#contact" data-email-link>Email me</a>
+          <a class="btn" href="Mehedi_Ahmed_Resume.pdf">Résumé (PDF)</a>
+        </div>
       </div>
     </section>
 
@@ -54,9 +63,17 @@
           <div class="project" id="leave-no-witnesses">
             <h4>Leave No Witnesses</h4>
             <p>A first-person stealth-action game for PC, still in development. Guards hunt you by sight and sound, and anything you leave behind can give you away.</p>
-            <figure class="media">
-              <img src="images/lnw/c05_floor_guard-1280.webp" srcset="images/lnw/c05_floor_guard-640.webp 640w, images/lnw/c05_floor_guard-960.webp 960w, images/lnw/c05_floor_guard-1280.webp 1280w, images/lnw/c05_floor_guard-1920.webp 1920w" sizes="(min-width: 72rem) 936px, (min-width: 52rem) calc(100vw - 16rem), calc(100vw - 32px)" width="1920" height="1080" decoding="async" alt="A club floor lit pink and blue. A guard stands between a stage pole and the booths, with the bar and two neon signs behind.">
-              <figcaption>A guard on the club floor, from the current build.</figcaption>
+            <figure class="gallery">
+              <ul class="gallery-shots" aria-label="Leave No Witnesses screenshots">
+                <li><a href="images/lnw/c05_floor_guard-1920.webp" data-caption="The main floor"><img src="images/lnw/c05_floor_guard-1280.webp" srcset="images/lnw/c05_floor_guard-640.webp 640w, images/lnw/c05_floor_guard-960.webp 960w, images/lnw/c05_floor_guard-1280.webp 1280w, images/lnw/c05_floor_guard-1920.webp 1920w" sizes="(min-width: 78rem) 920px, (min-width: 52rem) calc(88vw - 11.5rem), calc(100vw - 32px)" width="1920" height="1080" decoding="async" alt="A club floor lit pink and blue. A guard stands between a stage pole and the booths, with the bar and two neon signs behind."></a></li>
+                <li><a href="images/lnw/c01_street_wide-1920.webp" data-caption="Across the street"><img src="images/lnw/c01_street_wide-640.webp" width="640" height="360" loading="lazy" decoding="async" alt="A street at night, seen past a parked car. Across the road, a red light falls on the club: a pink neon sign over a red awning, and red ropes at the door. Office windows glow in the tower behind."></a></li>
+                <li><a href="images/lnw/f01_approach-1920.webp" data-caption="The approach"><img src="images/lnw/f01_approach-640.webp" width="640" height="360" loading="lazy" decoding="async" alt="First-person view down a dark street at night, pistol in hand. Across the road, a neon flamingo sign and a red awning mark the club entrance, with red ropes out front."></a></li>
+                <li><a href="images/lnw/c03_queue_corridor-1920.webp" data-caption="The entrance"><img src="images/lnw/c03_queue_corridor-640.webp" width="640" height="360" loading="lazy" decoding="async" alt="The club entrance, a narrow brick passage lined with marquee bulbs. Red ropes run down both sides of a striped carpet into the dark room beyond."></a></li>
+                <li><a href="images/lnw/f05_target_aim-1920.webp" data-caption="The dressing room"><img src="images/lnw/f05_target_aim-640.webp" width="640" height="360" loading="lazy" decoding="async" alt="First-person view aiming a pistol down a narrow dressing room. Mirror bulbs line the right wall, and the target stands at the far end, just above the sights."></a></li>
+                <li><a href="images/lnw/c09_alley_long-1920.webp" data-caption="The alley"><img src="images/lnw/c09_alley_long-640.webp" width="640" height="360" loading="lazy" decoding="async" alt="A long alley at night in blue light, with a fence and a dumpster on the left. An orange lamp glows over a door far down the left wall, and red light spills across the road on the right."></a></li>
+                <li><a href="images/lnw/c08_alley_back_door-1920.webp" data-caption="The back door"><img src="images/lnw/c08_alley_back_door-640.webp" width="640" height="360" loading="lazy" decoding="async" alt="A dark alley at night. A guard steps out of an open back door into the only pool of light, a red lamp on a brick wall."></a></li>
+              </ul>
+              <figcaption>From the current build.</figcaption>
             </figure>
             <p>What I built for it:</p>
             <ul class="points">
@@ -71,6 +88,17 @@
           <div class="project" id="poly-blockade">
             <h4>Poly Blockade</h4>
             <p>A low-poly tower defense game for iPhone, iPad and Android, coming soon. I'm a software engineer on it.</p>
+            <figure class="gallery">
+              <ul class="gallery-shots" aria-label="Poly Blockade screenshots">
+                <li><a href="images/pb/16-meadow-cinematic-1920.webp" data-caption="The meadow"><img src="images/pb/16-meadow-cinematic-1280.webp" srcset="images/pb/16-meadow-cinematic-640.webp 640w, images/pb/16-meadow-cinematic-960.webp 960w, images/pb/16-meadow-cinematic-1280.webp 1280w, images/pb/16-meadow-cinematic-1920.webp 1920w" sizes="(min-width: 78rem) 920px, (min-width: 52rem) calc(88vw - 11.5rem), calc(100vw - 32px)" width="1920" height="1080" loading="lazy" decoding="async" alt="Towers stand beside dirt roads across a green meadow. A crystal tower fires a blue bolt at a red raptor running through smoke, while a warrior fights a goblin outside the castle walls."></a></li>
+                <li><a href="images/pb/06-forest-upgrade-wheel-hud-1920.webp" data-caption="Archer Tower III's upgrades"><img src="images/pb/06-forest-upgrade-wheel-hud-640.webp" width="640" height="360" loading="lazy" decoding="async" alt="Top-down view of a forest level, with towers on pads between dirt roads. The selected Archer Tower III shows its range as a red ring, and its upgrade wheel offers two upgrades, priced 234 and 207. A panel at the bottom gives its attack, range and attack speed."></a></li>
+                <li><a href="images/pb/13-towers-screen-1920.webp" data-caption="The Towers screen"><img src="images/pb/13-towers-screen-640.webp" width="640" height="360" loading="lazy" decoding="async" alt="The Towers screen. A card shows Archer Tower I, a fast-firing arrow tower with cheap, quick shots that shred lightly armored creeps. Its upgrade path runs through three levels, then you choose one of two final upgrades: Sharpshooter's Redoubt or Thornveil Volley. Eight towers line the left side, three still locked."></a></li>
+                <li><a href="images/pb/02-frozen-castle-monster-1920.webp" data-caption="The snow level"><img src="images/pb/02-frozen-castle-monster-640.webp" width="640" height="360" loading="lazy" decoding="async" alt="A snowy level under a white sky. Ice bursts from the road around a giant monster built like a castle tower, red roof and all, as an archer and a warrior attack it. A hooded rogue waits beside a tower on the left."></a></li>
+                <li><a href="images/pb/08-forest-elf-night-bridge-1920.webp" data-caption="The forest at dusk"><img src="images/pb/08-forest-elf-night-bridge-640.webp" width="640" height="360" loading="lazy" decoding="async" alt="A forest level at dusk under a purple sky. A werewolf and a green beetle cross a wooden bridge over a glowing blue river, toward an elf archer and a warrior in the foreground. Two archers keep watch from a tower behind the bridge."></a></li>
+                <li><a href="images/pb/10-volcano-dragon-fire-1920.webp" data-caption="The dragon at the gate"><img src="images/pb/10-volcano-dragon-fire-640.webp" width="640" height="360" loading="lazy" decoding="async" alt="A volcanic level of grey ash and dead white trees. A red dragon breathes fire over a line of armored knights holding the castle gate, while an archer draws a bow beside them."></a></li>
+                <li><a href="images/pb/01-volcano-bone-dragon-1920.webp" data-caption="The bone dragon"><img src="images/pb/01-volcano-bone-dragon-640.webp" width="640" height="360" loading="lazy" decoding="async" alt="The volcanic level from above. A glowing bone dragon looms over the road near the castle, where knights with shields and two heroes fight small red monsters with spiked maces."></a></li>
+              </ul>
+            </figure>
           </div>
 
           <p class="links"><a href="https://liminalgamesstudio.com/">Liminal Games Studio website</a></p>
@@ -266,6 +294,19 @@
   </footer>
 </div>
 
+<!-- The screenshot viewer. The script fills it from whichever gallery was
+     opened; without the script, each thumbnail links to the full-size image. -->
+<dialog class="viewer" id="viewer" aria-labelledby="viewer-title">
+  <div class="viewer-bar">
+    <p class="viewer-title" id="viewer-title"></p>
+    <button class="viewer-close" type="button">Close</button>
+  </div>
+  <ul class="viewer-track"></ul>
+  <button class="viewer-step viewer-step--prev" type="button" data-step="-1"><span class="visually-hidden">Previous screenshot</span></button>
+  <button class="viewer-step viewer-step--next" type="button" data-step="1"><span class="visually-hidden">Next screenshot</span></button>
+  <p class="viewer-status" aria-live="polite"><span class="viewer-caption"></span> <span class="viewer-count"></span></p>
+</dialog>
+
 <script>
   (function () {
     // ---- Contact ----
@@ -315,6 +356,106 @@
         link.replaceWith(player);
         player.focus();
       });
+    });
+
+    // ---- Screenshot viewer ----
+    // Pressing a screenshot opens every screenshot of that game full screen.
+    // Swipe, the arrow keys or the buttons move through them. Modified clicks
+    // still open the image itself in a new tab.
+    var viewer = document.getElementById('viewer');
+    var track = viewer.querySelector('.viewer-track');
+    var title = viewer.querySelector('.viewer-title');
+    var caption = viewer.querySelector('.viewer-caption');
+    var count = viewer.querySelector('.viewer-count');
+    var prev = viewer.querySelector('.viewer-step--prev');
+    var next = viewer.querySelector('.viewer-step--next');
+    // Each screenshot comes in four widths, named -640.webp to -1920.webp
+    // (the Liminal site's sizes). The thumbnails link to the largest.
+    var widths = [640, 960, 1280, 1920];
+    var shots = [];
+    var shown = -1;
+    var opener = null;
+
+    function slideFor(link) {
+      var thumb = link.querySelector('img');
+      var width = thumb.getAttribute('width');
+      var height = thumb.getAttribute('height');
+      var base = link.getAttribute('href').replace(/-1920\.webp$/, '');
+      var img = document.createElement('img');
+      img.srcset = widths.map(function (w) { return base + '-' + w + '.webp ' + w + 'w'; }).join(', ');
+      img.sizes = '100vw';
+      img.src = link.getAttribute('href');
+      img.width = width;
+      img.height = height;
+      img.alt = thumb.alt;
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.style.setProperty('--ratio', width / height);
+      var slide = document.createElement('li');
+      slide.className = 'viewer-slide';
+      slide.append(img);
+      return slide;
+    }
+
+    function show(index) {
+      if (index === shown) return;
+      shown = index;
+      caption.textContent = shots[index].dataset.caption;
+      count.textContent = (index + 1) + ' of ' + shots.length;
+      prev.setAttribute('aria-disabled', index === 0);
+      next.setAttribute('aria-disabled', index === shots.length - 1);
+      Array.prototype.forEach.call(track.children, function (slide, i) {
+        slide.setAttribute('aria-hidden', i !== index);
+        // Load the neighbors too, so the next swipe lands on a finished image
+        if (Math.abs(i - index) <= 1) slide.firstChild.loading = 'eager';
+      });
+    }
+
+    function go(index) {
+      if (index < 0 || index >= shots.length) return;
+      track.scrollTo({ left: index * track.clientWidth });
+    }
+
+    function open(list, index, link) {
+      shots = Array.prototype.slice.call(list.querySelectorAll('a'));
+      opener = link;
+      shown = -1;
+      title.textContent = list.closest('.project').querySelector('h4').textContent;
+      track.replaceChildren.apply(track, shots.map(slideFor));
+      viewer.showModal();
+      track.scrollTo({ left: index * track.clientWidth, behavior: 'instant' });
+      show(index);
+    }
+
+    document.querySelectorAll('.gallery-shots').forEach(function (list) {
+      list.querySelectorAll('a').forEach(function (link, index) {
+        link.addEventListener('click', function (event) {
+          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+          event.preventDefault();
+          open(list, index, link);
+        });
+      });
+    });
+
+    track.addEventListener('scroll', function () {
+      show(Math.round(track.scrollLeft / track.clientWidth));
+    }, { passive: true });
+    prev.addEventListener('click', function () { go(shown - 1); });
+    next.addEventListener('click', function () { go(shown + 1); });
+    viewer.querySelector('.viewer-close').addEventListener('click', function () { viewer.close(); });
+    // Pressing the dark space around a screenshot closes the viewer
+    track.addEventListener('click', function (event) {
+      if (event.target.classList.contains('viewer-slide')) viewer.close();
+    });
+    viewer.addEventListener('keydown', function (event) {
+      var to = { ArrowLeft: shown - 1, ArrowRight: shown + 1, Home: 0, End: shots.length - 1 }[event.key];
+      if (to === undefined) return;
+      event.preventDefault();
+      go(to);
+    });
+    viewer.addEventListener('close', function () {
+      track.replaceChildren();
+      if (opener) opener.focus();
     });
   })();
 </script>
