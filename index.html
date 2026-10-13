@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mehedi Ahmed, Unity engineer</title>
+<meta name="description" content="Mehedi Ahmed is a Unity engineer in New York who builds games, VR and AR: rendering, NPC AI, physics, networking and editor tools. Co-founder and lead engineer at Liminal Games Studio.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mehedi Ahmed, Unity engineer">
+<meta property="og:description" content="Games, VR and AR since 2017. Co-founder and lead engineer at Liminal Games Studio.">
+<meta property="og:url" content="https://mehediahmed.com/">
+<link rel="canonical" href="https://mehediahmed.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap">
+<link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+<div class="wrap">
+  <p class="draft-banner" role="status">Draft. The highlighted items need your input before this goes live.</p>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Sections">
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="intro" aria-labelledby="name">
+      <h1 id="name">Mehedi Ahmed</h1>
+      <p class="title">Unity engineer in New York</p>
+      <p class="lead">I've been shipping VR, AR and games since 2017. I build the systems underneath them: rendering, NPC AI, physics, networking, and the editor tools the rest of the team works in. Right now I'm co-founder and lead engineer at Liminal Games Studio.</p>
+      <div class="actions">
+        <a class="btn btn--solid" href="#contact" data-email-link>Email me</a>
+        <a class="btn" href="Mehedi_Ahmed_Resume.pdf">Résumé (PDF)</a>
+      </div>
+    </section>
+
+    <section id="work" aria-labelledby="work-title">
+      <h2 class="section-title" id="work-title">Work</h2>
+
+      <article class="entry" id="liminal" aria-labelledby="liminal-title">
+        <div class="entry-head">
+          <h3 id="liminal-title">Liminal Games Studio</h3>
+          <p class="role">Co-founder and lead engineer</p>
+        </div>
+        <p class="when"><span class="years">2025–now</span> <span class="platforms">PC, iPhone, iPad, Android</span></p>
+        <div class="entry-body">
+          <p>An independent studio making low-poly games.</p>
+
+          <div class="project" id="leave-no-witnesses">
+            <h4>Leave No Witnesses</h4>
+            <p>A first-person stealth-action game for PC, still in development. Guards hunt you by sight and sound, and anything you leave behind can give you away.</p>
+            <figure class="media">
+              <img src="images/lnw/c05_floor_guard-1280.webp" srcset="images/lnw/c05_floor_guard-640.webp 640w, images/lnw/c05_floor_guard-960.webp 960w, images/lnw/c05_floor_guard-1280.webp 1280w, images/lnw/c05_floor_guard-1920.webp 1920w" sizes="(min-width: 72rem) 936px, (min-width: 52rem) calc(100vw - 16rem), calc(100vw - 32px)" width="1920" height="1080" decoding="async" alt="A club floor lit pink and blue. A guard stands between a stage pole and the booths, with the bar and two neon signs behind.">
+              <figcaption>A guard on the club floor, from the current build.</figcaption>
+            </figure>
+            <p>What I built for it:</p>
+            <ul class="points">
+              <li>A custom URP renderer for the game's pixel-art look. It captures the scene into small cubemaps, keeps only the visible texels in a compute pass, and draws each one as a quad in the world, so the pixels hold their place in 3D as the camera moves instead of sitting flat on the screen. It's GPU-driven: no per-frame counts come back to the CPU.</li>
+              <li>Guard perception: sight and sound checks for 100 NPCs inside a 1 ms frame budget, in Burst-compiled C# on the Job System.</li>
+              <li>Injuries instead of a health bar. Each character tracks pain, blood loss, vitality and damage to each body zone, so a hit can kill, knock someone out or leave them bleeding out, depending on the weapon and where it lands. Characters who aren't hurt cost nothing per frame.</li>
+              <li>A semantic octree the AI uses to reason about cover, sightlines and blood evidence without walking the scene graph every frame.</li>
+              <li>Hard walls between systems. AI, injuries and rendering talk only through shared interfaces and ids, and a test suite fails if any one of them reaches into another.</li>
+            </ul>
+          </div>
+
+          <div class="project" id="poly-blockade">
+            <h4>Poly Blockade</h4>
+            <p>A low-poly tower defense game for iPhone, iPad and Android, coming soon. I'm a software engineer on it.</p>
+          </div>
+
+          <p class="links"><a href="https://liminalgamesstudio.com/">Liminal Games Studio website</a></p>
+        </div>
+      </article>
+
+      <article class="entry" id="simx" aria-labelledby="simx-title">
+        <div class="entry-head">
+          <h3 id="simx-title">SimX</h3>
+          <p class="role">Unity engineer</p>
+        </div>
+        <p class="when"><span class="years">2023–2025</span> <span class="platforms">Meta Quest</span></p>
+        <div class="entry-body">
+          <p>VR medical training apps for Meta Quest. I owned features from design through release.</p>
+          <ul class="points">
+            <li>Editor tools (C#, JSON, Addressables) for setting up patient equipment, which made configuring asset loading 60% faster.</li>
+            <li>A texture combiner that generates wound textures on patient models, so a new wound no longer needs its own skinned mesh. Content work went 40% faster.</li>
+            <li>An animation system built for VR to replace Unity's Animator and cut its runtime cost.</li>
+            <li>Performance work on Quest that raised the frame rate 18%: less garbage collection, shared materials and textures, fewer draw calls.</li>
+            <li>Standards for AI-assisted development that the whole engineering team adopted.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="entry" id="win-reality" aria-labelledby="win-title">
+        <div class="entry-head">
+          <h3 id="win-title">WIN Reality</h3>
+          <p class="role">Senior Unity engineer</p>
+        </div>
+        <p class="when"><span class="years">2022</span> <span class="platforms">Meta Quest 2</span></p>
+        <div class="entry-body">
+          <p>A VR baseball training app with thousands of active users.</p>
+          <ul class="points">
+            <li>Ball physics: trajectory, bat collision and spin.</li>
+            <li>URP shaders in HLSL, including the trail that tracks the ball in real time.</li>
+            <li>A rebuilt in-headset UI with world-space menus and interactables, which raised engagement 13%.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="entry" id="avrio" aria-labelledby="avrio-title">
+        <div class="entry-head">
+          <h3 id="avrio-title">Avrio Analytics</h3>
+          <p class="role">Senior AR engineer</p>
+        </div>
+        <p class="when"><span class="years">2021–2022</span> <span class="platforms">Magic Leap</span></p>
+        <div class="entry-body">
+          <p>AR training apps for government clients, including de-escalation training for law enforcement. I led a team of four engineers and handled planning and stakeholder communication.</p>
+          <ul class="points">
+            <li>Colocated multiplayer: pose and voice streamed between headsets, and a calibration step that puts every device on one shared coordinate frame by scanning a fiducial marker.</li>
+            <li>NPCs driven by hierarchical behavior trees, with multi-stage interactions for the de-escalation scenarios.</li>
+            <li>A node-based dialog editor that let designers build those behaviors 80% faster.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="entry" id="contract" aria-labelledby="contract-title">
+        <div class="entry-head">
+          <h3 id="contract-title">Contract work</h3>
+          <p class="role">VR and AR developer</p>
+        </div>
+        <p class="when"><span class="years">2019–2021</span> <span class="platforms">Oculus Quest, iPhone and iPad</span></p>
+        <div class="entry-body">
+          <p>VR and AR apps for healthcare and medical training clients.</p>
+          <ul class="points">
+            <li>For Tipping Point Media: iOS AR apps for enterprise clients, with fluid simulation shaders that show liquid medication in AR training.</li>
+            <li>For Pixacore: a VR app for Oculus Quest that teaches healthcare professionals CAR T-cell cancer therapy procedures.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="entry" id="code-and-craft" aria-labelledby="cc-title">
+        <div class="entry-head">
+          <h3 id="cc-title">Code &amp; Craft</h3>
+          <p class="role">VR and AR developer</p>
+        </div>
+        <p class="when"><span class="years">2017–2018</span> <span class="platforms">iPhone and iPad</span></p>
+        <div class="entry-body">
+          <p>Consumer apps taken from prototype to release at a startup.</p>
+
+          <div class="project" id="pop-ar">
+            <h4>POP AR</h4>
+            <p>Place a to-scale virtual TV on your wall or a table, then resize it to see what fits. Built with ARKit for iPhone and iPad, it was one of the first retail AR apps on the App Store.</p>
+            <div class="media media--small">
+              <a class="video" href="https://www.youtube.com/watch?v=D3bcW_oqPOc" data-video="D3bcW_oqPOc" data-title="POP AR demo video">
+                <img src="images/pop-ar.webp" width="640" height="640" loading="lazy" decoding="async" alt="A virtual TV standing on a bench by the water, with the Manhattan skyline behind it at sunset.">
+                <span class="video-play">Play video</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry" id="operation-viewpoint" aria-labelledby="ov-title">
+        <div class="entry-head">
+          <h3 id="ov-title">Operation Viewpoint</h3>
+          <p class="role">Lead programmer</p>
+        </div>
+        <p class="when"><span class="years">2017</span> <span class="platforms">HTC Vive</span></p>
+        <div class="entry-body">
+          <p>An asymmetric multiplayer stealth game for VR. Two players work together to get through a level full of guards. I built the AI and the multiplayer networking, and worked on the core design.</p>
+          <div class="media media--small">
+            <a class="video" href="https://www.youtube.com/watch?v=XZuwyQmZN5Q" data-video="XZuwyQmZN5Q" data-title="Operation Viewpoint gameplay video">
+              <img src="images/operation-viewpoint.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="The Operation Viewpoint title card: cartoon robot guards over a yellow corridor crossed by red laser beams.">
+              <span class="video-play">Play video</span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry" id="the-hollows" aria-labelledby="hollows-title">
+        <div class="entry-head">
+          <h3 id="hollows-title">The Hollows</h3>
+          <p class="role">Lead engineer</p>
+        </div>
+        <p class="when"><span class="years">2017</span> <span class="platforms">HTC Vive</span></p>
+        <div class="entry-body">
+          <p>A VR cave exploration game. Collect crystals to stay charged, keep the Shadows away, and search the caverns for a treasure called the Constellation. It has custom locomotion and optimized real-time lighting.</p>
+          <p>Made by a team of students in Ira Fay's Virtual Reality Lab class at Hampshire College, spring 2017.</p>
+          <div class="media media--small">
+            <a class="video" href="https://www.youtube.com/watch?v=Er4qojVULXY" data-video="Er4qojVULXY" data-title="The Hollows gameplay video">
+              <img src="images/the-hollows.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="A gloved hand with glowing blue lights reaches for a large crystal in a dark blue cave.">
+              <span class="video-play">Play video</span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry" id="the-virtual-memory-palace" aria-labelledby="vmp-title">
+        <div class="entry-head">
+          <h3 id="vmp-title">The Virtual Memory Palace</h3>
+          <p class="role">Developer</p>
+        </div>
+        <p class="when"><span class="years">2016</span> <span class="platforms">Google Daydream</span></p>
+        <div class="entry-body">
+          <p>A training tool for the memory palace technique, built with a team of four at the MIT Media Lab's Reality, Virtually hackathon. You walk a set route through the rooms of a virtual palace placing objects, then test your recall through a 3D interface that responds to your voice.</p>
+          <p class="links">
+            <a href="https://www.youtube.com/watch?v=EA1gDCJ9OtI">Intro video</a>
+            <a href="https://devpost.com/software/the-virtual-memory-palace">Devpost page</a>
+          </p>
+        </div>
+      </article>
+
+      <article class="entry" id="dk2" aria-labelledby="dk2-title">
+        <div class="entry-head">
+          <h3 id="dk2-title">A borrowed Oculus DK2</h3>
+        </div>
+        <p class="when"><span class="years">2014</span> <span class="platforms">Oculus DK2</span></p>
+        <div class="entry-body">
+          <p>In my sophomore year of college I got a borrowed Oculus DK2 to run a simple demo in Unity, and I've been building for headsets since. XR brings together the two things I like most: programming, and interactive art and design.</p>
+          <p>I studied informatics at the University of Massachusetts Amherst (B.S.), a program that mixes computer science, mathematics, studio art and art history.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="skills" id="skills" aria-labelledby="skills-title">
+      <h2 class="section-title" id="skills-title">Skills</h2>
+      <dl>
+        <dt>Engines and languages</dt>
+        <dd>Unity, C#, HLSL and ShaderLab, C++, Unreal Engine 5</dd>
+        <dt>Rendering</dt>
+        <dd>URP and HDRP, shader programming, compute shaders and GPU-driven rendering, profiling and optimization</dd>
+        <dt>Systems</dt>
+        <dd>NPC AI (behavior trees, state machines, perception), networked multiplayer and voice, physics, animation, in-headset UI</dd>
+        <dt>Unity tooling</dt>
+        <dd>Custom editor tools, Addressables, Burst and the Job System, Unity Test Runner, CI/CD</dd>
+        <dt>Platforms</dt>
+        <dd>Meta Quest 2, 3 and Pro; HTC Vive; Oculus Rift; Magic Leap; Microsoft HoloLens; Google Daydream; iOS with ARKit; Android with ARCore</dd>
+        <dt>Other tools</dt>
+        <dd>Git, Jira, Rider, Visual Studio, Autodesk Maya, Adobe Photoshop</dd>
+      </dl>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <h2 class="section-title" id="contact-title">Write to me</h2>
+      <p class="contact-intro">I'm open to full-time roles and contract work in games, VR and AR.</p>
+      <span class="contact-address" id="email-address" data-user="mehediahmed2" data-domain="gmail.com">mehediahmed2 at gmail.com</span>
+      <div class="actions">
+        <a class="btn btn--solid" href="#contact" data-email-link>Email me</a>
+        <button class="btn" id="copy-email" type="button">Copy address</button>
+        <span class="copy-status" id="copy-status" aria-live="polite"></span>
+      </div>
+      <p class="links">
+        <a href="Mehedi_Ahmed_Resume.pdf">Résumé (PDF)</a>
+        <a href="https://www.linkedin.com/in/mehedi-ahmed-ba8586bb/">LinkedIn</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>&copy; 2026 Mehedi Ahmed</span>
+    <a href="https://liminalgamesstudio.com/">Liminal Games Studio</a>
+  </footer>
+</div>
+
+<script>
+  (function () {
+    // ---- Contact ----
+    // The address is assembled here so scrapers reading the raw HTML never see it whole.
+    var addressEl = document.getElementById('email-address');
+    var address = addressEl.dataset.user + '@' + addressEl.dataset.domain;
+    addressEl.textContent = address;
+    document.querySelectorAll('[data-email-link]').forEach(function (link) {
+      link.href = 'mailto:' + address;
+    });
+
+    var copyButton = document.getElementById('copy-email');
+    var copyStatus = document.getElementById('copy-status');
+
+    function selectAddress() {
+      var range = document.createRange();
+      range.selectNodeContents(addressEl);
+      var selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      copyStatus.textContent = 'Address selected. Copy it from here.';
+    }
+
+    copyButton.addEventListener('click', function () {
+      if (!navigator.clipboard || !navigator.clipboard.writeText) {
+        selectAddress();
+        return;
+      }
+      navigator.clipboard.writeText(address).then(function () {
+        copyStatus.textContent = 'Address copied.';
+      }, selectAddress);
+    });
+
+    // ---- Videos ----
+    // Each video starts as a poster frame that links to YouTube. Pressing it
+    // loads the player in its place, so nothing from YouTube loads until a
+    // visitor asks for it. Modified clicks still open YouTube in a new tab.
+    document.querySelectorAll('.video[data-video]').forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey) return;
+        event.preventDefault();
+        var player = document.createElement('iframe');
+        player.src = 'https://www.youtube-nocookie.com/embed/' + link.dataset.video + '?autoplay=1';
+        player.title = link.dataset.title;
+        player.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+        player.allowFullscreen = true;
+        link.replaceWith(player);
+        player.focus();
+      });
+    });
+  })();
+</script>
+</body>
+</html>

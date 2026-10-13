@@ -1,0 +1,352 @@
+/* Mehedi Ahmed, portfolio.
+   One page: an intro, the work as a timeline (newest first), skills, contact.
+
+   Type is Archivo, the family Liminal Games Studio's site uses, so the two
+   read as related. Text sits at normal width. The timeline's years take the
+   condensed end of the width axis, so the left column reads as a run of
+   dates with the hardware each job shipped on beneath them. */
+
+:root {
+  --gutter: clamp(16px, 4vw, 48px);
+  --measure: 72rem;
+  --text: 40rem;   /* reading width for paragraphs and lists */
+  --when: 10.5rem; /* the timeline's date column */
+
+  --bg: #f5f6fb;
+  --fg: #1a1d3a;
+  --muted: #5a5f80;
+  --line: #d6d9ea;
+  --focus: #3d6bff;
+  /* Fills image and video frames until they load */
+  --frame: #e3e5f0;
+
+  /* Placeholder highlight for text that must be filled in before launch */
+  --todo-bg: #ffe08a;
+  --todo-fg: #14172f;
+
+  --font: "Archivo", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #10122a;
+    --fg: #eef0fa;
+    --muted: #9ca1c4;
+    --line: #2a2e55;
+    --frame: #1c2047;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #10122a;
+  --fg: #eef0fa;
+  --muted: #9ca1c4;
+  --line: #2a2e55;
+  --frame: #1c2047;
+  color-scheme: dark;
+}
+
+/* Base */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  padding-inline: var(--gutter);
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+.wrap { max-width: var(--measure); margin-inline: auto; }
+a { color: inherit; text-underline-offset: 0.2em; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Header */
+.site-header { padding-block: 1.25rem; }
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem 1.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.site-nav a {
+  color: var(--muted);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+.site-nav a:hover { color: var(--fg); }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.5rem 1.25rem;
+  border: 1.5px solid var(--fg);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--fg);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.btn:hover { background: var(--fg); color: var(--bg); }
+.btn--solid { background: var(--fg); color: var(--bg); }
+.btn--solid:hover { background: transparent; color: var(--fg); }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
+
+/* Intro */
+.intro { padding-block: clamp(1.5rem, 6vw, 4.5rem) clamp(3rem, 8vw, 5.5rem); }
+.intro h1 {
+  margin: 0;
+  font-size: clamp(3rem, 10vw, 6.5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+.intro .title {
+  margin: 1rem 0 0;
+  font-size: clamp(1.25rem, 2.4vw, 1.625rem);
+  font-weight: 600;
+  line-height: 1.3;
+}
+.lead {
+  max-width: 36rem;
+  margin: 1.25rem 0 0;
+  font-size: clamp(1.125rem, 1.6vw, 1.25rem);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+.intro .actions { margin-top: 2rem; }
+
+/* Section headings */
+.section-title {
+  margin: 0 0 clamp(1rem, 3vw, 1.75rem);
+  font-size: clamp(1.625rem, 3.2vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* Timeline. Each entry is a row: the years and platforms on the left,
+   held in view while you read the entry, and the work on the right. */
+.entry {
+  display: grid;
+  grid-template-columns: var(--when) minmax(0, 1fr);
+  grid-template-areas: "when head" "when body";
+  grid-template-rows: auto 1fr;
+  column-gap: clamp(1.5rem, 4vw, 3rem);
+  padding-block: clamp(2rem, 5vw, 3.25rem);
+  border-top: 1px solid var(--line);
+}
+.entry-head { grid-area: head; }
+.entry-body { grid-area: body; }
+.when {
+  grid-area: when;
+  align-self: start;
+  position: sticky;
+  top: 1.5rem;
+  margin: 0;
+}
+.years {
+  display: block;
+  font-size: clamp(1.5rem, 2.6vw, 2.125rem);
+  font-stretch: 68%;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.platforms {
+  display: block;
+  margin-top: 0.625rem;
+  color: var(--muted);
+  font-size: 0.9375rem;
+  font-stretch: 87.5%;
+  line-height: 1.4;
+}
+.entry h3 {
+  margin: 0;
+  font-size: clamp(1.375rem, 2.4vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+.role { margin: 0.25rem 0 0; color: var(--muted); }
+.entry-body p,
+.entry-body ul { max-width: var(--text); }
+.entry-body p { margin: 1rem 0 0; text-wrap: pretty; }
+.points { margin: 1rem 0 0; padding-left: 1.25rem; }
+.points li + li { margin-top: 0.5rem; }
+
+/* A game or app inside an entry */
+.project { margin-top: 2.5rem; }
+.entry-body > .project:first-child { margin-top: 1.5rem; }
+.project h4 {
+  margin: 0;
+  font-size: 1.1875rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.project h4 + p { margin-top: 0.375rem; }
+
+.links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
+.links a { font-weight: 600; }
+
+/* Images and videos. Current work runs the full column; older work is smaller. */
+.media { margin: 1.5rem 0 0; }
+.media--small { max-width: 34rem; }
+.media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--frame);
+}
+.media figcaption { margin-top: 0.5rem; color: var(--muted); font-size: 0.9375rem; }
+
+/* A video starts as its poster frame, which links to YouTube. With the
+   script, pressing it swaps in the player right here. */
+.video {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  background: var(--frame);
+  color: var(--fg);
+}
+.media .video img { height: 100%; object-fit: cover; }
+/* POP AR's poster is square; this keeps the TV in the 16:9 frame */
+#pop-ar .video img { object-position: 50% 72%; }
+.video-play {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.875rem 0.5rem 0.75rem;
+  border-radius: 3px;
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.video-play::before {
+  content: "";
+  border-left: 0.6em solid currentColor;
+  border-block: 0.375em solid transparent;
+}
+.video:hover .video-play { background: var(--fg); color: var(--bg); }
+.media iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  background: var(--frame);
+}
+
+/* Skills, laid out on the timeline's columns */
+.skills {
+  padding-block: clamp(3rem, 7vw, 5rem);
+  border-top: 1px solid var(--line);
+}
+.skills dl {
+  display: grid;
+  grid-template-columns: var(--when) minmax(0, var(--text));
+  gap: 1.25rem clamp(1.5rem, 4vw, 3rem);
+  margin: 0;
+}
+.skills dt { font-weight: 700; line-height: 1.4; }
+.skills dd { margin: 0; }
+
+/* Contact */
+.contact {
+  padding-block: clamp(3.5rem, 9vw, 6.5rem);
+  border-top: 1px solid var(--line);
+}
+.contact-intro { max-width: var(--text); margin: 0 0 1.75rem; }
+.contact-address {
+  display: block;
+  margin: 0 0 1.75rem;
+  /* Scales with the viewport so the address stays on one line on phones */
+  font-size: clamp(1rem, 5.6vw, 3rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+.copy-status { color: var(--muted); font-size: 0.9375rem; }
+.contact .links { margin-top: 2rem; }
+
+/* Footer */
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  padding-block: 1.75rem 2.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.site-footer a { text-decoration: none; }
+.site-footer a:hover { color: var(--fg); }
+
+/* Placeholders. The draft banner shows for as long as any placeholder remains. */
+.todo {
+  padding: 0 0.25em;
+  border-radius: 2px;
+  background: var(--todo-bg);
+  color: var(--todo-fg);
+}
+.draft-banner {
+  display: none;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  border-radius: 3px;
+  background: var(--todo-bg);
+  color: var(--todo-fg);
+}
+body:has(.todo) .draft-banner { display: block; }
+
+/* Phones and narrow windows: the dates sit under each entry's title */
+@media (max-width: 52rem) {
+  .entry {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "head" "when" "body";
+    grid-template-rows: auto;
+  }
+  .when {
+    position: static;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 0.75rem;
+    margin-top: 0.5rem;
+  }
+  .years { font-size: 1.3125rem; }
+  .platforms { margin-top: 0; }
+  .skills dl { grid-template-columns: minmax(0, 1fr); row-gap: 0.25rem; }
+  .skills dd + dt { margin-top: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn, .video-play { transition: none; }
+}
