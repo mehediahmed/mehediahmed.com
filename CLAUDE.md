@@ -9,13 +9,22 @@ what he builds, how senior he is, where the proof is, and how to reach him. Anyt
 that doesn't help them with one of those doesn't belong on the page.
 
 Structure
-- One page: intro, Work (a timeline, newest first), Skills, Contact.
+- One page: intro, Work (a timeline, newest first), Skills, Contact. The intro ends
+  in the Leave No Witnesses gallery, above Work, so a visitor sees the work before
+  any paragraph about it. Its caption sits above the shots and names the game in
+  .gallery-name, so nobody has to guess what they're looking at, and links down to
+  what he built for it.
 - Each timeline entry is an <article class="entry">: h3 name, .role, .when (years and
   the platforms that job shipped on), then .entry-body. A game or app inside an
   employer's entry is a .project with an h4.
+- The 2017–2018 games sit in a .reel inside Work: three entries side by side, each
+  topped by its video poster, and on phones a small poster beside the years and
+  title. In a reel entry the .media is a direct child of the article, between .when
+  and .entry-body, so the grid can place it.
 - Heading order: h1 is his name, h2 for sections, h3 for entries, h4 for projects.
 - Entry ids keep the old Squarespace slugs (pop-ar, the-hollows, operation-viewpoint,
-  the-virtual-memory-palace), so the host can redirect /pop-ar to /#pop-ar.
+  the-virtual-memory-palace), so the host can redirect /pop-ar to /#pop-ar. pop-ar
+  sits on POP AR's poster rather than its text, so the link lands on the poster.
 
 Identity
 - The site's one idea is the timeline's left column: years set in condensed Archivo
@@ -34,12 +43,22 @@ Identity
   timeline entries is the only divider.
 
 Media
-- Current work gets full-column images; older work uses .media--small.
-- A game with several screenshots gets a .gallery: the first shot runs the full
-  column, the rest sit in a row beneath it (six to a row, three on phones, so keep
-  the count at six beyond the lead). Each links to its -1920.webp; the script opens
-  them all in the #viewer dialog. Captions are the short names from the Liminal
-  site's thumbnail strip, in data-caption.
+- Only current work gets a full-column image.
+- Screenshots go in a figure.gallery around a ul.gallery-shots. Thumbnails run six to
+  a row (three on phones), so within the timeline they're the same size in every
+  gallery. The intro's Leave No Witnesses row is wider, under its full-width lead.
+  - A game in current work gets .gallery.gallery--lead: its first shot runs the full
+    column above the row, so keep the count at six beyond the lead.
+  - An older professional role may carry a plain .gallery of its employer's images:
+    thumbnails only, never full column, with the source credited in the figcaption.
+  - Crop every shot in one gallery to the same aspect ratio so the row lines up.
+- The list's data-title heads the #viewer dialog. Each link points at the largest
+  file and carries data-caption: for the games, the short names from the Liminal
+  site's thumbnail strip. Files are named <slug>-<width>.webp. The viewer assumes the
+  Liminal widths (640 960 1280 1920); otherwise list them in data-widths on the link,
+  or on the list when every shot shares them.
+- Making new images: WebP at quality 80, never upscaled. Write -640 plus whichever
+  larger widths the source allows.
 - Videos start as a poster image that links to YouTube. The script swaps in a
   youtube-nocookie player on click, so nothing loads from YouTube until a visitor asks.
 - Every image has width, height and alt text that says what's in the frame. Use
@@ -48,6 +67,13 @@ Media
 - Leave No Witnesses and Poly Blockade screenshots come from the Liminal repo
   (~/Documents/Liminal, images/lnw and images/pb). Reuse its sizes and alt text
   rather than making new ones.
+- SimX and WIN Reality images (images/simx, images/win) come from the companies'
+  sites, downloaded 2026-10-13: simxvr.com/platform/virtual-manikin/,
+  simxvr.com/features/ and the ad on simxvr.com's home page; winreality.com/train-vr/.
+  SimX's instructor view dates from March 2024, while he was there; the hospital
+  bay render is from October 2025. WIN's shots are from 2025, after he left in 2022.
+  Each caption only credits the source ("From simxvr.com.", "From winreality.com.");
+  he asked for nothing else there.
 
 Copy
 - Plain, concrete, first person. Say what he built and what it did: "Guard
@@ -57,7 +83,8 @@ Copy
 - Sources of truth: his résumés (~/Documents/Mehedi_Ahmed_Resume_2026_v3, _XR and _TA,
   .docx and .pdf), the Liminal Games Studio site for anything about the games, and the
   old project pages (Devpost for The Virtual Memory Palace). Game descriptions must
-  match the studio site.
+  match the studio site. simxvr.com and winreality.com are the sources for the
+  images of those apps only (see Media), never for claims about his work.
 - Never invent metrics, dates, roles, employers, clients, platforms or links. Use only
   the numbers the résumé states. Mark anything unconfirmed as
   <mark class="todo">[what's needed]</mark>; the draft banner appears automatically.

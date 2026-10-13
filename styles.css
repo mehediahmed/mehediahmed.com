@@ -1,11 +1,15 @@
 /* Mehedi Ahmed, portfolio.
-   One page: an intro, the work as a timeline (newest first), skills, contact.
+   One page: an intro that ends in the Leave No Witnesses build, the work as a
+   timeline (newest first), skills, contact.
 
    Type is Archivo, the family Liminal Games Studio's site uses, so the two
    read as related. Text sits at normal width. The timeline's years take the
    condensed end of the width axis, so the left column reads as a run of
-   dates with the hardware each job shipped on beneath them. The intro and
-   the skills hang off the same two columns, so the page lines up on them. */
+   dates with the hardware each job shipped on beneath them. The skills hang
+   off the same two columns, so the page lines up on them.
+
+   Layout rules are written for wide screens first; the max-width blocks near
+   the end take them down to one column for phones. */
 
 :root {
   --gutter: clamp(16px, 4vw, 48px);
@@ -165,55 +169,51 @@ a:hover { text-decoration-color: currentColor; }
   border-color: color-mix(in srgb, var(--fg) 84%, var(--bg));
   background: color-mix(in srgb, var(--fg) 84%, var(--bg));
 }
-.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.625rem; }
 
-/* Intro. The name runs the full width; under it, the title sits in the
-   date column and the lead in the work column. */
-.intro {
+/* Intro: who, what and how to reach him, then the build itself, so a visitor
+   sees the work before the first paragraph about it. On wide screens the
+   name sits left and the lead right; the source order (name, title, lead,
+   buttons) is the reading order at every width. */
+.intro { padding-block: clamp(1.25rem, 4.5vw, 3.25rem) 0; }
+.intro-text {
   display: grid;
-  grid-template-columns: var(--when) minmax(0, 1fr);
-  column-gap: var(--col-gap);
-  padding-block: clamp(2.5rem, 9vw, 6.5rem) clamp(4rem, 10vw, 7.5rem);
+  gap: 1.125rem var(--col-gap);
 }
 .intro h1 {
-  grid-column: 1 / -1;
-  margin: 0 0 clamp(1.75rem, 4.5vw, 3.25rem) -0.04em;
-  font-size: clamp(3.25rem, 12.5vw, 8.75rem);
-  font-weight: 750;
-  line-height: 0.9;
+  margin: 0 0 0 -0.04em;
+  font-size: clamp(2.75rem, 7.2vw, 5.25rem);
+  font-weight: 760;
+  line-height: 0.92;
   letter-spacing: -0.045em;
 }
-.intro-side p { margin: 0; }
 .intro .title {
-  font-size: 1.125rem;
-  font-weight: 650;
-  line-height: 1.35;
+  max-width: 26em;
+  margin: 0.875rem 0 0;
+  font-size: clamp(1.125rem, 1.9vw, 1.4375rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.012em;
   text-wrap: balance;
 }
-.intro .status {
-  margin-top: 0.5rem;
-  color: var(--muted);
-  font-size: 0.9375rem;
-  line-height: 1.45;
-}
 .lead {
-  max-width: 36rem;
-  margin: -0.3em 0 0; /* lines the first line's cap height up with the title */
-  font-size: clamp(1.1875rem, 1.7vw, 1.375rem);
-  line-height: 1.5;
-  letter-spacing: -0.005em;
+  max-width: 34rem;
+  margin: 0;
+  line-height: 1.55;
   text-wrap: pretty;
 }
-.intro .actions { margin-top: 2rem; }
+.intro .actions { margin-top: 1.125rem; }
+.intro .gallery { margin-top: clamp(2.25rem, 5vw, 3.5rem); }
 
 /* Section headings */
 .section-title {
-  margin: 0 0 clamp(1.25rem, 3.5vw, 2.25rem);
-  font-size: clamp(2rem, 4.6vw, 3.25rem);
+  margin: 0 0 clamp(1rem, 3vw, 1.75rem);
+  font-size: clamp(1.75rem, 3.6vw, 2.5rem);
   font-weight: 750;
   line-height: 1;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.03em;
 }
+.work { padding-top: clamp(3.5rem, 8vw, 6rem); }
 
 /* Timeline. Each entry is a row: the years and platforms on the left,
    held in view while you read the entry, and the work on the right. */
@@ -223,9 +223,11 @@ a:hover { text-decoration-color: currentColor; }
   grid-template-areas: "when head" "when body";
   grid-template-rows: auto 1fr;
   column-gap: var(--col-gap);
-  padding-block: clamp(2.25rem, 6vw, 4rem);
+  padding-block: clamp(1.75rem, 4.5vw, 2.75rem);
   border-top: 1px solid var(--line);
 }
+/* The rule sits between entries, so the first one goes without */
+.section-title + .entry { padding-top: 0; border-top: 0; }
 .entry-head { grid-area: head; }
 .entry-body { grid-area: body; }
 .when {
@@ -237,7 +239,7 @@ a:hover { text-decoration-color: currentColor; }
 }
 .years {
   display: block;
-  font-size: clamp(2rem, 3.4vw, 2.875rem);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-stretch: 62%;
   font-weight: 800;
   font-variant-numeric: tabular-nums;
@@ -246,7 +248,7 @@ a:hover { text-decoration-color: currentColor; }
 }
 .platforms {
   display: block;
-  margin-top: 0.75rem;
+  margin-top: 0.5rem;
   color: var(--muted);
   font-size: 0.9375rem;
   font-stretch: 87.5%;
@@ -254,38 +256,43 @@ a:hover { text-decoration-color: currentColor; }
 }
 .entry h3 {
   margin: 0;
-  font-size: clamp(1.5rem, 2.8vw, 2.125rem);
+  font-size: clamp(1.375rem, 2.4vw, 1.75rem);
   font-weight: 720;
-  line-height: 1.1;
-  letter-spacing: -0.025em;
+  line-height: 1.15;
+  letter-spacing: -0.022em;
 }
-.role { margin: 0.375rem 0 0; color: var(--muted); }
+.role { margin: 0.25rem 0 0; color: var(--muted); }
 .entry-body p,
 .points { max-width: var(--text); }
-.entry-body p { margin: 1rem 0 0; text-wrap: pretty; }
-.points { margin: 1rem 0 0; padding-left: 1.25rem; }
+.entry-body p { margin: 0.75rem 0 0; text-wrap: pretty; }
+.points { margin: 0.75rem 0 0; padding-left: 1.25rem; }
 .points li { padding-left: 0.25rem; }
-.points li + li { margin-top: 0.625rem; }
+.points li + li { margin-top: 0.5rem; }
 .points li::marker { color: var(--muted); }
 
 /* A game or app inside an entry */
-.project { margin-top: 3rem; }
-.entry-body > .project:first-child { margin-top: 1.5rem; }
+.project { margin-top: 2.25rem; }
 .project h4 {
   margin: 0;
-  font-size: 1.3125rem;
+  font-size: 1.1875rem;
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.015em;
 }
-.project h4 + p { margin-top: 0.375rem; }
+.project h4 + p { margin-top: 0.25rem; }
+.built { color: var(--muted); }
 
 .links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
 .links a { font-weight: 600; }
+.entry-body .links { margin-top: 1.75rem; }
 
-/* Screenshots. The first runs the full column; the rest sit in a row
-   beneath it. Each opens the viewer, or the full-size image without script. */
-.gallery { margin: 1.5rem 0 0; }
+/* Screenshots. Every shot is a thumbnail, six to a row (three on phones),
+   so within the timeline every gallery's thumbnails are the same size. A
+   .gallery--lead also runs its first shot the full column: current work
+   gets one, older roles get the thumbnails alone. Keep one aspect ratio
+   within a gallery so its row lines up. Each shot opens the viewer, or the
+   full-size image without script. */
+.gallery { margin: 1.25rem 0 0; }
 .gallery-shots {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -294,7 +301,6 @@ a:hover { text-decoration-color: currentColor; }
   padding: 0;
   list-style: none;
 }
-.gallery-shots li:first-child { grid-column: 1 / -1; }
 .gallery-shots a {
   display: block;
   overflow: hidden;
@@ -302,7 +308,6 @@ a:hover { text-decoration-color: currentColor; }
   background: var(--frame);
   cursor: zoom-in;
 }
-.gallery-shots li:first-child a { border-radius: 0.5rem; }
 .gallery-shots img {
   display: block;
   width: 100%;
@@ -310,22 +315,32 @@ a:hover { text-decoration-color: currentColor; }
   transition: transform 0.5s var(--ease-out);
 }
 .gallery-shots a:hover img { transform: scale(1.05); }
-.gallery-shots li:first-child a:hover img { transform: scale(1.015); }
-.gallery figcaption,
-.media figcaption { margin-top: 0.625rem; color: var(--muted); font-size: 0.9375rem; }
-
-/* Images and videos for older work, which run smaller than current work. */
-.media { margin: 1.5rem 0 0; }
-.media--small { max-width: 34rem; }
-.media img {
+.gallery--lead li:first-child { grid-column: 1 / -1; }
+.gallery--lead li:first-child a { border-radius: 0.5rem; }
+.gallery--lead li:first-child a:hover img { transform: scale(1.015); }
+.gallery figcaption {
+  max-width: var(--text);
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+.gallery figcaption a { color: var(--fg); font-weight: 600; }
+/* A caption above the shots names the game before you see it */
+.gallery figcaption:first-child { max-width: none; margin: 0 0 0.875rem; }
+.gallery-name {
   display: block;
-  width: 100%;
-  height: auto;
-  background: var(--frame);
+  margin-bottom: 0.125rem;
+  color: var(--fg);
+  font-size: clamp(1.1875rem, 1.8vw, 1.375rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
 }
 
-/* A video starts as its poster frame, which links to YouTube. With the
+/* Videos. Each starts as its poster frame, which links to YouTube. With the
    script, pressing it swaps in the player right here. */
+.media { margin: 0; }
 .video {
   position: relative;
   display: block;
@@ -335,21 +350,26 @@ a:hover { text-decoration-color: currentColor; }
   background: var(--frame);
   color: var(--fg);
 }
-.media .video img { height: 100%; object-fit: cover; }
+.video img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 /* POP AR's poster is square; this keeps the TV in the 16:9 frame */
 #pop-ar .video img { object-position: 50% 72%; }
 .video-play {
   position: absolute;
-  left: 0.75rem;
-  bottom: 0.75rem;
+  left: 0.625rem;
+  bottom: 0.625rem;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem 0.5rem 0.875rem;
+  padding: 0.4375rem 0.875rem 0.4375rem 0.75rem;
   border-radius: 999px;
   background: var(--bg);
   color: var(--fg);
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.2;
   transition: background-color 0.2s ease, color 0.2s ease;
@@ -369,38 +389,67 @@ a:hover { text-decoration-color: currentColor; }
   background: var(--frame);
 }
 
-/* Skills, laid out on the timeline's columns */
-.skills {
-  padding-block: clamp(3.5rem, 8vw, 6rem);
+/* The 2017–18 games: three entries side by side, each topped by its video
+   poster. The poster comes after the heading in the source, so screen
+   readers meet the name first; the grid areas put it on top. */
+.reel {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem var(--col-gap);
+  padding-block: clamp(1.75rem, 4.5vw, 2.75rem);
   border-top: 1px solid var(--line);
 }
+.reel .entry {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "media" "when" "head" "body";
+  grid-template-rows: auto;
+  align-content: start;
+  padding: 0;
+  border: 0;
+}
+.reel .media { grid-area: media; margin-bottom: 1rem; }
+.reel .when {
+  position: static;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.125rem 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.reel .years { font-size: 1.625rem; }
+.reel .platforms { margin-top: 0; }
+.reel h3 { font-size: 1.3125rem; letter-spacing: -0.018em; }
+.reel .entry-body p { margin-top: 0.5rem; }
+.reel .project { margin-top: 1rem; }
+.reel .project h4 { font-size: 1.0625rem; }
+.reel .project h4 + p { margin-top: 0.25rem; }
+
+/* Skills, laid out on the timeline's columns */
+.skills { padding-top: clamp(3.5rem, 8vw, 6rem); }
 .skills dl {
   display: grid;
   grid-template-columns: var(--when) minmax(0, var(--text));
-  gap: 1.375rem var(--col-gap);
+  gap: 1rem var(--col-gap);
   margin: 0;
 }
-.skills dt { font-weight: 700; line-height: 1.4; }
+.skills dt { font-weight: 700; line-height: 1.5; }
 .skills dd { margin: 0; }
 
 /* Contact */
-.contact {
-  padding-block: clamp(3.5rem, 9vw, 7rem);
-  border-top: 1px solid var(--line);
-}
-.contact-intro { max-width: var(--text); margin: 0 0 1.5rem; font-size: 1.125rem; }
+.contact { padding-block: clamp(4rem, 9vw, 6.5rem) clamp(3rem, 7vw, 5rem); }
+.contact-intro { max-width: var(--text); margin: 0 0 1.25rem; font-size: 1.125rem; }
 .contact-address {
   display: block;
-  margin: 0 0 2rem -0.03em;
+  margin: 0 0 1.75rem -0.03em;
   /* Scales with the viewport so the address stays on one line on phones */
-  font-size: clamp(1.25rem, 6.2vw, 4.25rem);
+  font-size: clamp(1.25rem, 6.2vw, 3.75rem);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.035em;
   overflow-wrap: anywhere;
 }
 .copy-status { color: var(--muted); font-size: 0.9375rem; }
-.contact .links { margin-top: 2.25rem; }
+.contact .links { margin-top: 2rem; }
 
 /* Footer */
 .site-footer {
@@ -408,8 +457,7 @@ a:hover { text-decoration-color: currentColor; }
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 0.75rem 2rem;
-  padding-block: 1.75rem 2.5rem;
-  border-top: 1px solid var(--line);
+  padding-block: 1.5rem 2.5rem;
   color: var(--muted);
   font-size: 0.875rem;
 }
@@ -492,8 +540,9 @@ a:hover { text-decoration-color: currentColor; }
 }
 .viewer-slide img {
   display: block;
-  /* As large as the track allows without cropping */
-  width: min(100cqw, 100cqh * var(--ratio));
+  /* As large as the track allows without cropping, and never past the
+     file's own width, so small images aren't blown up */
+  width: min(100cqw, 100cqh * var(--ratio), var(--max-width, 100cqw));
   height: auto;
   aspect-ratio: var(--ratio);
   border-radius: 0.5rem;
@@ -568,14 +617,35 @@ a:hover { text-decoration-color: currentColor; }
 }
 body:has(.todo) .draft-banner { display: block; }
 
+/* Wide screens only: the intro splits in two, and long bullet lists pair up */
+@media (min-width: 52rem) {
+  .intro-text {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 27rem);
+    align-items: end;
+  }
+  .lead { margin-bottom: 0.125rem; }
+}
+@media (min-width: 62rem) {
+  /* Two balanced columns, read down the first, then the second */
+  .points--pair {
+    columns: 2;
+    column-gap: 2.75rem;
+    max-width: none;
+    padding-left: 0;
+  }
+  .points--pair li {
+    margin-left: 1.25rem;
+    break-inside: avoid;
+  }
+  .points--pair li + li { margin-top: 0; }
+  .points--pair li:not(:last-child) { margin-bottom: 0.75rem; }
+}
+
 /* Phones and narrow windows: one column. Each entry's dates sit above its
    title, so the timeline still reads down the page. */
 @media (max-width: 52rem) {
-  .intro,
   .entry,
   .skills dl { grid-template-columns: minmax(0, 1fr); }
-  .intro-main { margin-top: 1.5rem; }
-  .lead { margin-top: 0; }
   .entry {
     grid-template-areas: "when" "head" "body";
     grid-template-rows: auto;
@@ -586,12 +656,49 @@ body:has(.todo) .draft-banner { display: block; }
     flex-wrap: wrap;
     align-items: baseline;
     gap: 0.25rem 0.875rem;
-    margin-bottom: 0.875rem;
+    margin-bottom: 0.75rem;
   }
-  .years { font-size: clamp(2rem, 9vw, 2.5rem); }
+  .years { font-size: clamp(1.75rem, 8vw, 2.25rem); }
   .platforms { margin-top: 0; }
-  .skills dl { row-gap: 0.25rem; }
-  .skills dd + dt { margin-top: 1.125rem; }
+  .skills dl { row-gap: 0.125rem; }
+  .skills dd + dt { margin-top: 1rem; }
+}
+
+/* The 2017–18 games on phones: one per row, a small poster beside the years
+   and title, and the text full width beneath. The empty third row takes up
+   any height the poster has over the years and title. */
+@media (max-width: 48rem) {
+  .reel { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .reel .entry {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas: "media when" "media head" "media ." "body body";
+    column-gap: 1rem;
+  }
+  .reel .media { align-self: start; margin-bottom: 0; }
+  .reel .entry-body { margin-top: 0.25rem; }
+  /* A playing video takes the full width again */
+  .reel .entry:has(iframe) {
+    grid-template-rows: auto;
+    grid-template-areas: "media media" "when when" "head head" "body body";
+  }
+  .reel .entry:has(iframe) .media { margin-bottom: 1rem; }
+  /* On a poster this small the play label becomes a round button. The
+     words stay in the link for screen readers. */
+  .reel .video-play {
+    left: 0.375rem;
+    bottom: 0.375rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    justify-content: center;
+    gap: 0;
+    padding: 0 0 0 0.125rem;
+    font-size: 0;
+  }
+  .reel .video-play::before {
+    border-left-width: 0.6875rem;
+    border-block-width: 0.4375rem;
+  }
 }
 
 @media (max-width: 40rem) {
@@ -613,5 +720,5 @@ body:has(.todo) .draft-banner { display: block; }
   a, .btn, .site-nav a, .video-play, .viewer-close, .viewer-step,
   .gallery-shots img { transition: none; }
   .gallery-shots a:hover img,
-  .gallery-shots li:first-child a:hover img { transform: none; }
+  .gallery--lead li:first-child a:hover img { transform: none; }
 }
