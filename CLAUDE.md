@@ -41,6 +41,11 @@ Identity
   there and to both dark-mode blocks (the prefers-color-scheme block and
   :root[data-theme="dark"]). No raw hex values in components. Screenshots and video
   posters carry the color; the page around them stays quiet.
+- The palette is "Electric", and the two themes are twins: near-black on near-white,
+  near-white on near-black, both faintly blue. One accent, --accent, goes on the
+  timeline's years, the solid button, focus rings, selection and link underlines.
+  It's one blue at hue 229: #7b93ff in dark, #163ff3 in light (darker so it reads
+  on the light page). Don't spread the accent to more elements or add a second one.
 - The favicon (favicon.svg, favicon.ico, apple-touch-icon.png) is Archivo's M at
   weight 800 in --bg on a --fg square, swapped in dark mode. It and the theme-color
   tags can't read CSS variables, so they repeat the hex values; change them together.

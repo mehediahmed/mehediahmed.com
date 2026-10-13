@@ -19,20 +19,25 @@
   --col-gap: clamp(1.5rem, 4vw, 3rem);
   --header: 3.5rem;
 
-  /* favicon.svg, apple-touch-icon.png and the theme-color tags in index.html
-     and 404.html repeat --bg and --fg; change them together */
-  --bg: #f5f6fb;
-  --fg: #1a1d3a;
-  --muted: #5a5f80;
-  --line: #d6d9ea;
-  --focus: #3d6bff;
+  /* favicon.svg, favicon.ico, apple-touch-icon.png and the theme-color tags
+     in index.html and 404.html repeat --bg and --fg; change them together */
+  --bg: #f6f7fc;
+  --fg: #0f111a;
+  --muted: #575c78;
+  --line: #dde0ec;
+  --focus: #163ff3;
   /* Fills image and video frames until they load */
-  --frame: #e3e5f0;
+  --frame: #e6e8f2;
+  /* The one accent: the timeline's years, the solid button, selection and
+     link underlines. One blue in both themes, darker here so it reads on
+     the light page. */
+  --accent: #163ff3;
+  --on-accent: #f6f7fc;
 
   /* The screenshot viewer is always night, so the screenshots carry the color */
-  --viewer-bg: #10122a;
-  --viewer-fg: #eef0fa;
-  --viewer-muted: #9ca1c4;
+  --viewer-bg: #08090f;
+  --viewer-fg: #eceffd;
+  --viewer-muted: #9298b8;
 
   /* Placeholder highlight for text that must be filled in before launch */
   --todo-bg: #ffe08a;
@@ -43,26 +48,32 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #10122a;
-    --fg: #eef0fa;
-    --muted: #9ca1c4;
-    --line: #2a2e55;
-    --frame: #1c2047;
-    --viewer-bg: #090b1d;
-    --viewer-fg: #eef0fa;
-    --viewer-muted: #9ca1c4;
+    --bg: #08090f;
+    --fg: #eceffd;
+    --muted: #9298b8;
+    --line: #1f2236;
+    --focus: #7b93ff;
+    --frame: #141726;
+    --accent: #7b93ff;
+    --on-accent: #08090f;
+    --viewer-bg: #040508;
+    --viewer-fg: #eceffd;
+    --viewer-muted: #9298b8;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #10122a;
-  --fg: #eef0fa;
-  --muted: #9ca1c4;
-  --line: #2a2e55;
-  --frame: #1c2047;
-  --viewer-bg: #090b1d;
-  --viewer-fg: #eef0fa;
-  --viewer-muted: #9ca1c4;
+  --bg: #08090f;
+  --fg: #eceffd;
+  --muted: #9298b8;
+  --line: #1f2236;
+  --focus: #7b93ff;
+  --frame: #141726;
+  --accent: #7b93ff;
+  --on-accent: #08090f;
+  --viewer-bg: #040508;
+  --viewer-fg: #eceffd;
+  --viewer-muted: #9298b8;
   color-scheme: dark;
 }
 
@@ -86,15 +97,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .wrap { max-width: var(--measure); margin-inline: auto; }
-::selection { background: var(--fg); color: var(--bg); }
+::selection { background: var(--accent); color: var(--on-accent); }
 a {
   color: inherit;
   text-decoration-thickness: 1px;
-  text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
   text-underline-offset: 0.22em;
   transition: text-decoration-color 0.2s ease;
 }
-a:hover { text-decoration-color: currentColor; }
+a:hover { text-decoration-color: var(--accent); }
 :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
 
 .visually-hidden {
@@ -168,10 +179,10 @@ a:hover { text-decoration-color: currentColor; }
   transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 .btn:hover { background: color-mix(in srgb, var(--fg) 8%, transparent); }
-.btn--solid { background: var(--fg); color: var(--bg); }
+.btn--solid { border-color: var(--accent); background: var(--accent); color: var(--on-accent); }
 .btn--solid:hover {
-  border-color: color-mix(in srgb, var(--fg) 84%, var(--bg));
-  background: color-mix(in srgb, var(--fg) 84%, var(--bg));
+  border-color: color-mix(in srgb, var(--accent) 84%, var(--bg));
+  background: color-mix(in srgb, var(--accent) 84%, var(--bg));
 }
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.625rem; }
 
@@ -243,6 +254,7 @@ a:hover { text-decoration-color: currentColor; }
 }
 .years {
   display: block;
+  color: var(--accent);
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-stretch: 62%;
   font-weight: 800;
