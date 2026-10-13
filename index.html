@@ -3,17 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Mehedi Ahmed, Unity engineer</title>
-<meta name="description" content="Mehedi Ahmed is a Unity engineer in New York who builds games, VR and AR: rendering, NPC AI, physics, networking and editor tools. Co-founder and lead engineer at Liminal Games Studio.">
+<title>Mehedi Ahmed, senior Unity engineer</title>
+<meta name="description" content="Mehedi Ahmed is a senior Unity engineer in New York who builds games, VR and AR: rendering, NPC AI, physics, networking and editor tools. Co-founder and lead engineer at Liminal Games Studio.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Mehedi Ahmed, Unity engineer">
+<meta property="og:site_name" content="Mehedi Ahmed">
+<meta property="og:title" content="Mehedi Ahmed, senior Unity engineer">
 <meta property="og:description" content="Games, VR and AR since 2017. Co-founder and lead engineer at Liminal Games Studio.">
 <meta property="og:url" content="https://mehediahmed.com/">
+<meta property="og:image" content="https://mehediahmed.com/images/share-1200.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A club floor in Leave No Witnesses, lit pink and blue. A guard stands between a stage pole and the booths, with the bar and two neon signs behind.">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://mehediahmed.com/">
+<!-- The icons and theme colors repeat --fg and --bg from styles.css -->
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#f5f6fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10122a" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap">
-<link rel="stylesheet" href="styles.css?v=3">
+<link rel="stylesheet" href="styles.css?v=4">
+<!-- Who this page is about, for search engines. No email: it stays out of the raw HTML. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Mehedi Ahmed",
+  "url": "https://mehediahmed.com/",
+  "jobTitle": "Senior Unity engineer",
+  "worksFor": { "@type": "Organization", "name": "Liminal Games Studio", "url": "https://liminalgamesstudio.com/" },
+  "address": { "@type": "PostalAddress", "addressLocality": "New York", "addressRegion": "NY", "addressCountry": "US" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of Massachusetts Amherst" },
+  "sameAs": ["https://www.linkedin.com/in/mehedi-ahmed-ba8586bb/"]
+}
+</script>
 </head>
 <body>
 <header class="site-header">
@@ -37,7 +63,7 @@
       <div class="intro-text">
         <div>
           <h1 id="name">Mehedi Ahmed</h1>
-          <p class="title">Unity engineer in New York,<br> open to full-time roles and contract work.</p>
+          <p class="title">Senior Unity engineer in New York,<br> open to full-time roles and contract work.</p>
         </div>
         <div>
           <p class="lead">I build the systems under VR, AR and games: rendering, NPC AI, physics, networking and the editor tools a team works in. Shipping since 2017; now co-founder and lead engineer at Liminal Games Studio.</p>
@@ -297,7 +323,7 @@
       <span class="contact-address" id="email-address" data-user="mehediahmed2" data-domain="gmail.com">mehediahmed2 at gmail.com</span>
       <div class="actions">
         <a class="btn btn--solid" href="#contact" data-email-link>Email me</a>
-        <button class="btn" id="copy-email" type="button">Copy address</button>
+        <button class="btn" id="copy-email" type="button" hidden>Copy address</button>
         <span class="copy-status" id="copy-status" aria-live="polite"></span>
       </div>
       <p class="links">
@@ -337,8 +363,10 @@
       link.href = 'mailto:' + address;
     });
 
+    // The copy button starts hidden, so it never shows on a page that can't run it
     var copyButton = document.getElementById('copy-email');
     var copyStatus = document.getElementById('copy-status');
+    copyButton.hidden = false;
 
     function selectAddress() {
       var range = document.createRange();

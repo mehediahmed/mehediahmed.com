@@ -25,6 +25,8 @@ Structure
 - Entry ids keep the old Squarespace slugs (pop-ar, the-hollows, operation-viewpoint,
   the-virtual-memory-palace), so the host can redirect /pop-ar to /#pop-ar. pop-ar
   sits on POP AR's poster rather than its text, so the link lands on the poster.
+- 404.html is the page GitHub Pages shows for a missing path. It's served at any
+  depth, so every URL in it starts at the root (/styles.css, /favicon.svg).
 
 Identity
 - The site's one idea is the timeline's left column: years set in condensed Archivo
@@ -39,6 +41,9 @@ Identity
   there and to both dark-mode blocks (the prefers-color-scheme block and
   :root[data-theme="dark"]). No raw hex values in components. Screenshots and video
   posters carry the color; the page around them stays quiet.
+- The favicon (favicon.svg, favicon.ico, apple-touch-icon.png) is Archivo's M at
+  weight 800 in --bg on a --fg square, swapped in dark mode. It and the theme-color
+  tags can't read CSS variables, so they repeat the hex values; change them together.
 - No cards, shadows, gradients, icon rows or decorative dividers. A rule between
   timeline entries is the only divider.
 
@@ -59,6 +64,9 @@ Media
   or on the list when every shot shares them.
 - Making new images: WebP at quality 80, never upscaled. Write -640 plus whichever
   larger widths the source allows.
+- The link-preview image (og:image) is images/share-1200.jpg: the Leave No Witnesses
+  club floor cropped from c05_floor_guard-1920.webp to 1200×630. It's a JPEG because
+  some link previews don't show WebP.
 - Videos start as a poster image that links to YouTube. The script swaps in a
   youtube-nocookie player on click, so nothing loads from YouTube until a visitor asks.
 - Every image has width, height and alt text that says what's in the frame. Use
@@ -94,7 +102,8 @@ Privacy
 - Never publish his phone number or street address. Location is city level only
   ("New York").
 - The email address is assembled by script from data-user and data-domain so it never
-  appears whole in the raw HTML. Keep it that way.
+  appears whole in the raw HTML. Keep it that way, including in the JSON-LD Person
+  block in the head.
 - The site links to Mehedi_Ahmed_Resume.pdf, his public résumé (no phone number). When
   he updates it, replace that file under the same name, and check the new copy has no
   phone number or street address before it goes in. Titles and dates on the page
@@ -108,7 +117,8 @@ Links
 
 Motion
 - CSS first. The only script is the email assembly, the copy button, the video
-  facade and the screenshot viewer. Don't add scroll animations or entrance effects.
+  facade and the screenshot viewer (the JSON-LD block is data, not script). Don't add
+  scroll animations or entrance effects.
 - Every transition has a prefers-reduced-motion path, and the page is complete with
   motion and script off (videos fall back to links to YouTube, screenshots to the
   full-size image).
@@ -120,8 +130,8 @@ Constraints
 - No libraries or CDN scripts. Google Fonts and the click-to-load YouTube player are
   the only third-party requests.
 - Semantic HTML and visible focus states.
-- index.html loads styles.css with a ?v=N query so browsers don't pair new HTML with a
-  cached old file. When styles.css changes, bump N.
+- index.html and 404.html load styles.css with a ?v=N query so browsers don't pair new
+  HTML with a cached old file. When styles.css changes, bump N in both.
 
 Checking your work
 - Headless Chrome won't make a window narrower than about 500px, so screenshot phone

@@ -19,6 +19,8 @@
   --col-gap: clamp(1.5rem, 4vw, 3rem);
   --header: 3.5rem;
 
+  /* favicon.svg, apple-touch-icon.png and the theme-color tags in index.html
+     and 404.html repeat --bg and --fg; change them together */
   --bg: #f5f6fb;
   --fg: #1a1d3a;
   --muted: #5a5f80;
@@ -66,6 +68,8 @@
 
 /* Base */
 *, *::before, *::after { box-sizing: border-box; }
+/* Otherwise a class that sets display, like .btn, would show a hidden element */
+[hidden] { display: none !important; }
 html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header) + 1rem);
@@ -450,6 +454,10 @@ a:hover { text-decoration-color: currentColor; }
 }
 .copy-status { color: var(--muted); font-size: 0.9375rem; }
 .contact .links { margin-top: 2rem; }
+
+/* 404.html: the intro's name and title styles, with room before the footer */
+.not-found { padding-bottom: clamp(4rem, 12vw, 9rem); }
+.not-found .actions { margin-top: 1.75rem; }
 
 /* Footer */
 .site-footer {
