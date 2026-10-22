@@ -93,11 +93,14 @@ Copy
   perception: sight and sound checks for 100 NPCs inside a 1 ms frame budget," not
   "Architected a high-performance perception framework." Rewrite résumé phrasing
   ("spearheaded", "leveraged", "architected") as plain sentences.
-- Sources of truth: his résumés (~/Documents/Mehedi_Ahmed_Resume_2026_v3, _XR and _TA,
-  .docx and .pdf), the Liminal Games Studio site for anything about the games, and the
-  old project pages (Devpost for The Virtual Memory Palace). Game descriptions must
-  match the studio site. simxvr.com and winreality.com are the sources for the
-  images of those apps only (see Media), never for claims about his work.
+- Sources of truth: his current résumé (~/Documents/Mehedi_Ahmed_Resume_2027.docx),
+  the Liminal Games Studio site for anything about the games, and the old project pages
+  (Devpost for The Virtual Memory Palace). The 2027 résumé replaces the 2026 ones
+  (_v3, _XR, _TA): a claim it dropped, such as WIN Reality's ball physics or the
+  Leave No Witnesses renderer's cubemap and texel detail, comes off the page too.
+  Game descriptions must match the studio site. simxvr.com and winreality.com are
+  the sources for the images of those apps only (see Media), never for claims about
+  his work.
 - Never invent metrics, dates, roles, employers, clients, platforms or links. Use only
   the numbers the résumé states. Mark anything unconfirmed as
   <mark class="todo">[what's needed]</mark>; the draft banner appears automatically. The
@@ -113,7 +116,9 @@ Privacy
 - The site links to Mehedi_Ahmed_Resume.pdf, his public résumé (no phone number). When
   he updates it, replace that file under the same name, and check the new copy has no
   phone number or street address before it goes in. Titles and dates on the page
-  should match it.
+  should match it. He exports PDFs from Google Docs with the phone number in the
+  header, so the public copy is that export with the first contact line rewritten
+  without it; nothing else changes. .gitignore keeps .docx files out of the repo.
 
 Links
 - nickquest.com (the old sites for The Hollows and Operation Viewpoint) is now a

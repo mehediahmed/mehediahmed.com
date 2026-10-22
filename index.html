@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mehedi Ahmed, senior Unity engineer</title>
-<meta name="description" content="Mehedi Ahmed is a senior Unity engineer in New York who builds games, VR and AR: rendering, NPC AI, physics, networking and editor tools. Co-founder and lead engineer at Liminal Games Studio.">
+<meta name="description" content="Mehedi Ahmed is a senior Unity engineer in New York who builds games, VR and AR: NPC AI, rendering and shaders, networked multiplayer, performance and editor tools. Co-founder and lead engineer at Liminal Games Studio.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Mehedi Ahmed">
 <meta property="og:title" content="Mehedi Ahmed, senior Unity engineer">
@@ -64,7 +64,7 @@
           <p class="title">Senior Unity engineer in New York,<br> open to full-time roles and contract work.</p>
         </div>
         <div>
-          <p class="lead">I build the systems under VR, AR and games: rendering, NPC AI, physics, networking and the editor tools a team works in. Shipping since 2017; now co-founder and lead engineer at Liminal Games Studio.</p>
+          <p class="lead">I build the systems under VR, AR and games: NPC AI, rendering and shaders, networked multiplayer, frame rate on standalone headsets, and the editor tools a team works in. Shipping since 2017; now co-founder and lead engineer at Liminal Games Studio.</p>
           <div class="actions">
             <a class="btn btn--solid" href="#contact" data-email-link>Email me</a>
             <a class="btn" href="Mehedi_Ahmed_Resume.pdf">Résumé (PDF)</a>
@@ -99,18 +99,18 @@
         </div>
         <p class="when"><span class="years">2025–now</span> <span class="platforms">PC, iPhone, iPad, Android</span></p>
         <div class="entry-body">
-          <p>An independent studio making low-poly games.</p>
+          <p>A two-person independent studio making low-poly games.</p>
 
           <div class="project" id="leave-no-witnesses">
             <h4>Leave No Witnesses</h4>
             <p>A first-person stealth-action game for PC, in development. Guards hunt you by sight and sound, and anything you leave behind can give you away.</p>
             <p class="built">What I built:</p>
             <ul class="points points--pair">
-              <li>A custom URP renderer for the pixel-art look. It captures the scene into small cubemaps, keeps only the visible texels in a compute pass and draws each one as a quad in the world, so pixels hold their place in 3D as the camera moves. GPU-driven, with nothing read back to the CPU each frame.</li>
               <li>Guard perception: sight and sound checks for 100 NPCs inside a 1 ms frame budget, in Burst-compiled C# on the Job System.</li>
-              <li>Injuries instead of a health bar: pain, blood loss, vitality and damage per body zone. Characters who aren't hurt cost nothing per frame.</li>
-              <li>A semantic octree the AI queries for cover, sightlines and blood evidence without walking the scene graph every frame.</li>
-              <li>Hard walls between AI, injuries and rendering: they talk only through shared interfaces and ids, enforced by a test suite.</li>
+              <li>An event-driven codebase split into isolated assemblies. AI, simulation and rendering talk only through shared interfaces and ids, and a boundary test suite fails any cross-system reference in one Test Runner pass.</li>
+              <li>Injuries instead of a health bar: pain, blood loss, vitality and function per body zone, so the outcome depends on the weapon, the zone and the structure it hits. Characters who aren't hurt cost nothing per frame.</li>
+              <li>A semantic octree the AI queries for cover, sightlines and evidence without walking the scene graph every frame.</li>
+              <li>A custom URP render pipeline driven by the GPU: compute passes and indirect draws, with no counts read back to the CPU each frame.</li>
             </ul>
           </div>
 
@@ -141,13 +141,13 @@
         </div>
         <p class="when"><span class="years">2023–2025</span> <span class="platforms">Meta Quest</span></p>
         <div class="entry-body">
-          <p>VR medical training apps. I owned features from design through release.</p>
+          <p>VR medical training apps, built on the Meta XR SDK. I owned features from design through release and connected them to the backend services for content and sessions.</p>
           <ul class="points">
             <li>Editor tools (C#, JSON, Addressables) for setting up patient equipment: asset-loading setup 60% faster.</li>
             <li>A texture combiner that paints wounds onto patient models, so a new wound no longer needs its own skinned mesh. Content work went 40% faster.</li>
-            <li>An animation system built for VR to replace Unity's Animator and cut its runtime cost.</li>
-            <li>Quest performance work that raised the frame rate 18%: less garbage collection, shared materials and textures, fewer draw calls.</li>
-            <li>AI-assisted development standards the whole engineering team adopted.</li>
+            <li>An event-driven animation system built for VR to replace Unity's Animator, with a lower runtime cost and the state and blending the apps needed.</li>
+            <li>Led the Quest performance work that raised the frame rate 18%: less garbage collection, shared materials and textures, fewer draw calls.</li>
+            <li>AI-assisted development standards and shared context files that the whole engineering team adopted.</li>
           </ul>
           <figure class="gallery">
             <ul class="gallery-shots" data-title="SimX" aria-label="SimX screenshots">
@@ -169,9 +169,9 @@
         <div class="entry-body">
           <p>A VR baseball training app with thousands of active users.</p>
           <ul class="points">
-            <li>Ball physics: trajectory, bat collision and spin.</li>
-            <li>URP shaders in HLSL, including a real-time ball trail.</li>
-            <li>A rebuilt in-headset UI, with world-space menus and interactables, that raised engagement 13%.</li>
+            <li>URP shaders in HLSL and ShaderLab, including an optimized trail renderer for real-time ball tracking.</li>
+            <li>A rebuilt in-headset UI, with world-space menus, interactables and HUD elements, that raised engagement 13%.</li>
+            <li>Code reviews and mentoring across the engineering team.</li>
           </ul>
           <figure class="gallery">
             <ul class="gallery-shots" data-title="WIN Reality" data-widths="640 764" aria-label="WIN Reality screenshots">
@@ -196,9 +196,9 @@
         <div class="entry-body">
           <p>AR training for government clients, including de-escalation training for law enforcement. I led a team of four engineers and handled planning and stakeholder communication.</p>
           <ul class="points">
-            <li>Colocated multiplayer: pose and voice between headsets, on one shared coordinate frame from a scanned fiducial marker.</li>
-            <li>NPCs on hierarchical behavior trees, with multi-stage interactions.</li>
-            <li>A node-based dialog editor that let designers build those behaviors 80% faster.</li>
+            <li>Colocated multiplayer on Photon: pose and voice streamed between headsets, and a calibration flow that puts every device on one shared coordinate frame from a scanned fiducial marker.</li>
+            <li>NPCs on hierarchical behavior trees, with adaptive, multi-stage interactions.</li>
+            <li>A node-based editor for NPC dialog and animation that let designers build those behaviors 80% faster.</li>
           </ul>
         </div>
       </article>
@@ -299,17 +299,19 @@
       <h2 class="section-title" id="skills-title">Skills</h2>
       <dl>
         <dt>Engines and languages</dt>
-        <dd>Unity, C#, HLSL and ShaderLab, C++, Unreal Engine 5</dd>
+        <dd>Unity (through Unity 6), C#, HLSL and ShaderLab. Familiar with C++ and Unreal Engine 5.</dd>
+        <dt>XR</dt>
+        <dd>Meta XR SDK, OpenXR, XR Interaction Toolkit, AR Foundation, hand tracking, passthrough and mixed reality, spatial anchors, in-headset UI and HUDs</dd>
         <dt>Rendering</dt>
-        <dd>URP and HDRP, shader programming, compute shaders and GPU-driven rendering, profiling and optimization</dd>
+        <dd>URP and HDRP, shader programming, compute shaders and GPU-driven rendering, Vulkan and OpenGL ES, profiling and optimization</dd>
         <dt>Systems</dt>
-        <dd>NPC AI (behavior trees, state machines, perception), networked multiplayer and voice, physics, animation, in-headset UI</dd>
+        <dd>NPC AI (behavior trees, hierarchical state machines, perception), dialog systems, networked multiplayer (Photon, Netcode for GameObjects) with pose and voice streaming, multi-device calibration, REST APIs, physics, animation</dd>
         <dt>Unity tooling</dt>
-        <dd>Custom editor tools, Addressables, Burst and the Job System, Unity Test Runner, CI/CD</dd>
+        <dd>Custom editor tools, Addressables, DOTS (ECS, Burst and the Job System), event-driven architecture, Unity Test Runner and NUnit, CI/CD</dd>
         <dt>Platforms</dt>
-        <dd>Meta Quest 2, 3 and Pro; HTC Vive; Oculus Rift; Magic Leap; Microsoft HoloLens; Google Daydream; iOS with ARKit; Android with ARCore</dd>
+        <dd>Meta Quest 2, 3 and Pro; PC VR (SteamVR, HTC Vive, Oculus Rift); Microsoft HoloLens; Magic Leap; Google Daydream; iOS with ARKit; Android with ARCore</dd>
         <dt>Other tools</dt>
-        <dd>Git, Jira, Rider, Visual Studio, Autodesk Maya, Adobe Photoshop</dd>
+        <dd>Git, Plastic SCM, Jira, Rider, Visual Studio, Xcode, Android Studio, Claude Code, OpenAI Codex, Autodesk Maya, Adobe Photoshop</dd>
         <dt>Education</dt>
         <dd>B.S. in informatics, University of Massachusetts Amherst</dd>
       </dl>
