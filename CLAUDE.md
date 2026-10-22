@@ -119,6 +119,8 @@ Privacy
   should match it. He exports PDFs from Google Docs with the phone number in the
   header, so the public copy is that export with the first contact line rewritten
   without it; nothing else changes. .gitignore keeps .docx files out of the repo.
+  Every link to it carries ?v=N (index.html twice, 404.html once); bump N when the
+  file changes, or browsers keep showing the copy they cached.
 
 Links
 - nickquest.com (the old sites for The Hollows and Operation Viewpoint) is now a
