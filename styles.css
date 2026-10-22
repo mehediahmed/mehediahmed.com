@@ -620,22 +620,24 @@ a:hover { text-decoration-color: var(--accent); }
 @keyframes viewer-in { from { opacity: 0; } }
 @keyframes viewer-rise { from { opacity: 0; transform: translateY(1rem) scale(0.98); } }
 
-/* Placeholders. The draft banner shows for as long as any placeholder remains. */
+/* Placeholders. While any placeholder remains, a draft banner opens the page. It is
+   generated here, not written in the HTML, so a page with no placeholders carries no
+   draft text for reader modes or link previews to show. */
 .todo {
   padding: 0 0.25em;
   border-radius: 2px;
   background: var(--todo-bg);
   color: var(--todo-fg);
 }
-.draft-banner {
-  display: none;
+body:has(.todo) > .wrap::before {
+  content: "Draft. The highlighted items need your input before this goes live.";
+  display: block;
   margin: 1rem 0 0;
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
   background: var(--todo-bg);
   color: var(--todo-fg);
 }
-body:has(.todo) .draft-banner { display: block; }
 
 /* Wide screens only: the intro splits in two, and long bullet lists pair up */
 @media (min-width: 52rem) {

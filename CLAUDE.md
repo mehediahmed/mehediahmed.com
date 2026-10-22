@@ -100,7 +100,8 @@ Copy
   images of those apps only (see Media), never for claims about his work.
 - Never invent metrics, dates, roles, employers, clients, platforms or links. Use only
   the numbers the résumé states. Mark anything unconfirmed as
-  <mark class="todo">[what's needed]</mark>; the draft banner appears automatically.
+  <mark class="todo">[what's needed]</mark>; the draft banner appears automatically. The
+  banner is CSS generated content on .wrap, so never write draft text into the HTML.
 - No superlatives beyond what the résumé itself claims.
 
 Privacy
